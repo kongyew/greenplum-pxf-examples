@@ -8,5 +8,5 @@ export DOCKER_OSS_TAG="kochanpivotal/gpdb5-pxf"
 export DOCKER_LATEST_OSS_TAG="kochanpivotal/gpdb5-pxf:latest"
 
 # Use Cases specific
-export DC_USE_CASE1_SCRIPT="docker-compose -f ./usecase1/docker-compose-cloudera.yml"
+export DC_USE_CASE1_SCRIPT="docker-compose -f ./usecase1/docker-compose.yml"
 export DC_USE_CASE2_SCRIPT="docker-compose -f ./usecase2/docker-compose-postgres8.3.yml"

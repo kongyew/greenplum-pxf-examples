@@ -16,7 +16,6 @@ else
   sudo groupadd gpadmin
 fi
 
-
 # Check if user already exists.
 grep -q "$USERNAME" /etc/passwd
 if [ $? -eq $SUCCESS ]

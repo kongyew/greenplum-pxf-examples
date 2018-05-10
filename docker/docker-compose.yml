@@ -1,0 +1,41 @@
+version: "3"
+services:
+  cloudera:
+    image: cloudera/quickstart:latest
+    command:  /bin/bash
+      #/usr/bin/docker-quickstart
+    hostname: docker_cloudera_1
+    ports:
+      - 8888:8888
+      - 80:80
+      - 7180:7180
+    expose:
+      - "8888"
+      - "80"
+      - "7180"
+    volumes:
+      - ..:/src
+  gpdb:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      #image: "pivotaldata/gpdb-base"
+      #hostname: gpdb
+      ports:
+       - "9090:9090"
+       - "5432:5432"
+       - "5005:5005"
+       - "5010:5010"
+       - "9022:22"
+       - "40000:40000"
+       - "40001:40001"
+       - "40002:40002"
+      expose:
+       - "5432"
+      volumes:
+       - ..:/src
+      links:
+       - cloudera
+      tty: true
+
+    
