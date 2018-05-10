@@ -9,5 +9,11 @@ The Pivotal Greenplum Database (GPDB) is an advanced, fully featured, open sourc
 
 
 ## Read data from HDFS
+This example uses Greenplum with PXF to read data from HDFS.
+
+For more details see [README](usecase1/README.MD)
 
 ## Read data from external SQL database
+This example uses Greenplum with PXF to read data from external SQL database (Postgresql)
+
+For more details see [README](usecase2/README.MD)

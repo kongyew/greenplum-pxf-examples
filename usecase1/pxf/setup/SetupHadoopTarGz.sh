@@ -95,8 +95,6 @@ function IsGPDBRunning()
       /usr/local/bin/startGPDB.sh
     fi
 
-
-
   else
     echo "Cannot run as this user: $(whoami)"
     exit -1
