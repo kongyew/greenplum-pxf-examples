@@ -2,25 +2,22 @@
 The Pivotal Greenplum Database (GPDB) is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
 <https://pivotal.io/pivotal-greenplum>
 
-# How to use Greenplum (GPHDFS to read data from Hadoop (Cloudera)
-
-This [repository](https://github.com/kongyew/greenplum-gphdfs-examples) demonstrates how to use GPHDFS to read text data from hadoop.
+# How to use Greenplum to read data from Hadoop (Cloudera)
+This [repository](https://github.com/kongyew/greenplum-pxf-examples/tree/master/usecase1) demonstrates how to use Greenplum with PXF to read text data from hadoop.
 
 # Table of Contents
 1. [Pre-requisites](#Pre-requisites)
 2. [Starting Docker-compose](#Starting Docker-compose)
-3. [Configure Greenplum](#Configure Greenplum)
+3. [Configure Greenplum](#Configure-Greenplum)
 4. [Configure Cloudera](#Configure-Cloudera)
-
-
 
 ## Pre-requisites:
 - [docker-compose](http://docs.docker.com/compose)
 - [Cloudera docker image](https://hub.docker.com/r/cloudera/quickstart/)
-- [GPDB 5.x OSS docker image](https://hub.docker.com/r/kochanpivotal/gpdb5oss/)
+- [GPDB 5.x docker image](https://hub.docker.com/r/kochanpivotal/gpdb5oss/)
 
 ## Starting Docker-compose
-Once you have cloned this repository, you can run the command  `./runDocker.sh -t usecase1 -c up`, in order to start both Greenplum and Streamsets docker instances.
+Once you have cloned this repository, you can run the command  `./runDocker.sh -t usecase1 -c up`, in order to start both Greenplum and Cloudera docker instances.
 
 The assumption: docker and docker-compose are already installed on your machine.
 
@@ -39,7 +36,6 @@ gpdbsne     |
 gpdbsne     | init is running
 gpdbsne     | /docker-entrypoint.d/startSSH.sh:
 ```
-
 ### How to access Greenplum docker instance:
 You can use this command `docker exec -it gpdbsne bin/bash` to access Greenplum docker instance.
 
@@ -51,7 +47,6 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
 22c87a7bc39d        kochanpivotal/gpdb5-pxf      "/docker-entrypoint.…"   4 minutes ago       Up 4 minutes        0.0.0.0:5005->5005/tcp, 0.0.0.0:5010->5010/tcp, 0.0.0.0:5432->5432/tcp, 0.0.0.0:40000-40002->40000-40002/tcp, 0.0.0.0:9022->22/tcp                                                                               gpdbsne
 
 root@gpdbsne:/#
-
 ```
 
 ### How to access Cloudera docker instance:
@@ -132,24 +127,24 @@ Using delaybeforesend 0.05 and prompt_validation_timeout 1.0
 [INFO] completed successfully
 ```
 
-##### Create sample database with the name "gphdfs_db"
+##### Create sample database with the name "pxf_db"
 The scripts to create database and sample data is found at `/code/usercase1/data`.
 
 Next, run the command '/code/usecase1/data/setupDB.sh'
 ```
-[gpadmin@gpdbsne gphdfs]$ ./setupDB.sh           
+$ ./setupDB.sh           
 GRANT
 GRANT
 CREATE EXTERNAL TABLE
 ```
 
 3. Verify database and table is created.
-Use the command `su - gpadmin`, followed by `psql -U gpadmin -d gphdfs_db -c "select count(*) from gphdfs_hdfs_textsimple;"`.  The result shows no records are yet created.
+Use the command `su - gpadmin`, followed by `psql -U gpadmin -d gphdfs_db -c "select count(*) from pxf_hdfs_textsimple;"`.  The result shows no records are yet created.
 Example:
 ```
 root@gpdbsne:/code/usecase1/data#su - gpadmin
 $
-$ psql -U gpadmin -d gphdfs_db -c "select count(*) from gphdfs_hdfs_textsimple;"
+$ psql -U gpadmin -d gphdfs_db -c "select count(*) from pxf_hdfs_textsimple;"
  count
 -------
      0
