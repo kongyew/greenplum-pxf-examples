@@ -50,6 +50,9 @@ services:
         command: bin/bash
         hostname: "gpdbsne"
         container_name: gpdbsne
+        environment:
+          - START_GPDB=yes
+          - START_PXF=yes 
         ports:
          - "5432:5432"
          - "5005:5005"

@@ -10,12 +10,20 @@ Greenplum Database® is an advanced, fully featured, open source data platform. 
 
 
 # Use Cases:
-1. [Read text data from HDFS](#read-text-data-from-hdfs)
-2. [Read data from external SQL database](#Read-data-from-external-SQL-database)
+1. [Read text data from HDFS](#read-data-from-hdfs)
+2. [Read JSON data from HDFS](#read-AVRO-from-hdfs)
+3. [Read HIVE Table data](#read-HIVE-Table-data)
+4. [Read data from external SQL database - experimental features](#Read-data-from-external-SQL-database)
+
 
 
 ## Read data from HDFS
 This example uses Greenplum with PXF to read data from HDFS.
+
+For more details see [README](usecase1/README.MD)
+
+## Read HIVE Table data
+This example uses Greenplum with PXF to read HIVE Table from HDFS.
 
 For more details see [README](usecase1/README.MD)
 

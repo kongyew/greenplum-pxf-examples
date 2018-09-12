@@ -1,24 +1,15 @@
-.. markdown-guide documentation master file, created by
-   sphinx-quickstart on Wed Aug 15 10:20:33 2012.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. markdown-guide documentation master file,
 
-Welcome to markdown-guide's documentation!
+Welcome to Greenplum-PXF Examples documentation!
 ==========================================
 
 .. pull-quote::
 
-   Markdown is a lightweight markup language, originally created by John Gruber and Aaron Swartz allowing
-   people "to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally
-   valid XHTML (or HTML).
 
-   Source: http://en.wikipedia.org/wiki/Markdown
+  Greenplum Database® is an advanced, fully featured, open source data platform.  
+  It provides powerful and rapid analytics on petabyte scale data volumes.  Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
 
-This is a syntax guide designed to provide very clear, understandable examples of Markdown usage. It borrows from several
-sources including:
-
-* http://en.wikipedia.org/wiki/Markdown
-* http://daringfireball.net/projects/markdown/
+   Source: https://greenplum.org/
 
 Contents:
 

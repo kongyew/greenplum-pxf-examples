@@ -214,7 +214,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'pxf-guide', u'pxf-guide Documentation',
-     [u'Daniel Greenfeld'], 1)
+     [u'author '], 1)
 ]
 
 # If true, show URL addresses after external links.

@@ -8,6 +8,64 @@ set -e
 # Including configurations
 . config.sh
 
+
+function RunUseCase5()
+{
+  #echo "[RunUseCase5] Command:  $1"
+  COMMAND=$1
+
+  if [[ -z "${COMMAND}" ]]; then
+    echo "Missing command"
+    exit -1;
+  else
+    if [[ "${COMMAND}" == "up" ]]; then
+        $DC_USE_CASE5_SCRIPT up
+    elif [[ "${COMMAND}" == "down" ]]; then
+         $DC_USE_CASE5_SCRIPT down
+    else # default option
+        $DC_USE_CASE5_SCRIPT up
+    fi
+  fi
+}
+
+function RunUseCase4()
+{
+  #echo "[RunUseCase4] Command:  $1"
+  COMMAND=$1
+
+  if [[ -z "${COMMAND}" ]]; then
+    echo "Missing command"
+    exit -1;
+  else
+    if [[ "${COMMAND}" == "up" ]]; then
+        $DC_USE_CASE4_SCRIPT up
+    elif [[ "${COMMAND}" == "down" ]]; then
+         $DC_USE_CASE4_SCRIPT down
+    else # default option
+        $DC_USE_CASE4_SCRIPT up
+    fi
+  fi
+}
+
+function RunUseCase3()
+{
+  #echo "[RunUseCase3] Command:  $1"
+  COMMAND=$1
+
+  if [[ -z "${COMMAND}" ]]; then
+    echo "Missing command"
+    exit -1;
+  else
+    if [[ "${COMMAND}" == "up" ]]; then
+        $DC_USE_CASE3_SCRIPT up
+    elif [[ "${COMMAND}" == "down" ]]; then
+         $DC_USE_CASE3_SCRIPT down
+    else # default option
+        $DC_USE_CASE3_SCRIPT up
+    fi
+  fi
+}
+
 function RunUseCase2()
 {
   #echo "[RunUseCase2] Command:  $1"
@@ -97,6 +155,12 @@ else
       RunUseCase1  "${COMMAND}"
   elif [[ "${TYPE}" == "usecase2" ]]; then
       RunUseCase2  "${COMMAND}"
+  elif [[ "${TYPE}" == "usecase3" ]]; then
+        RunUseCase3  "${COMMAND}"
+  elif [[ "${TYPE}" == "usecase4" ]]; then
+        RunUseCase4  "${COMMAND}"
+  elif [[ "${TYPE}" == "usecase5" ]]; then
+            RunUseCase5  "${COMMAND}"
   else # default option
        echo "Please provide a valid option"
   fi
