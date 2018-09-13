@@ -4,7 +4,7 @@ GRANT INSERT ON PROTOCOL pxf TO gpadmin;
 
 DROP EXTERNAL TABLE IF EXISTS  pxf_jdbc_postgres_table1;
 CREATE EXTERNAL TABLE pxf_jdbc_postgres_table1(id int)
-            LOCATION ('pxf://postgres_table1?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://postgres:5432/DBNAME&USER=dbuser&PASS=dbuserpass')
+            LOCATION ('pxf://sampletable1?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://postgresql96:5432/DBNAME&USER=dbuser&PASS=dbuserpass')
             FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
 
 
@@ -12,7 +12,7 @@ CREATE EXTERNAL TABLE pxf_jdbc_postgres_table1(id int)
 
 DROP EXTERNAL TABLE IF EXISTS  pxf_jdbc_postgres_testpxf;
 CREATE EXTERNAL TABLE pxf_jdbc_postgres_testpxf(a int, b text)
-                        LOCATION ('pxf://testpxf?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://postgres:5432/DBNAME&USER=dbuser&PASS=dbuserpass')
+                        LOCATION ('pxf://sampletable2?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://postgresql96:5432/DBNAME&USER=dbuser&PASS=dbuserpass')
                         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
 
 

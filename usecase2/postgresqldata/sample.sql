@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS  sampletable1;
 create table sampletable1 as select id from generate_Series(1,10000) id;
-
+select count(*) from sampletable1;
 
 ---CREATE TABLE sampletable1(id int);
 -- INSERT INTO sampletable1 VALUES (1);
@@ -10,6 +10,7 @@ create table sampletable1 as select id from generate_Series(1,10000) id;
 
 DROP TABLE IF EXISTS  sampletable2;
 create table sampletable2 as select generate_Series(1,10000) as a,  md5(random()::text) AS b;
+select count(*) from sampletable2;
 
 -- CREATE TABLE sampletable2 (a int, b text);
 -- INSERT INTO sampletable2 VALUES (1, 'Cheese');

@@ -8,13 +8,8 @@ cd `dirname $0`
 
 . ./setEnv.sh
 
-
-
-
-
 if [ "$(whoami)" == "postgres" ]
 then
-  $status=`which psql`
   if [ $? == 0 ]; then
       psql -h ${POSTGRES_HOST} -U ${POSTGRES_USER} -d ${POSTGRES_DB} -f ./sample.sql
   fi
