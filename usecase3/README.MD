@@ -41,12 +41,23 @@ $ docker exec -it gpdbsne bin/bash
 [root@gpdbsne /]#
 [root@gpdbsne /]#
 ```
-2. You can use gpadmin account to create sample database and table.
+2. Next, you can run GPDB by using this command `startGPDB.sh`
+```
+[root@gpdbsne /]# startGPDB.sh
+SSHD is running
+SSHD is running...
+20180508:23:38:58:000150 gpstart:gpdbsne:gpadmin-[INFO]:-Starting gpstart with args: -a
+20180508:23:38:58:000150 gpstart:gpdbsne:gpadmin-[INFO]:-Gathering information and validating the environment...
+...
+20180508:23:39:11:000370 gpstart:gpdbsne:gpadmin-[ERROR]:-gpstart error: Master instance process running
+[root@gpdbsne /]#
+```
+3. You can use gpadmin account to create sample database and table.
 The following example uses setupDB.sh under `/code/usecase2/PXFExamples/`.
 ```
 # su - gpadmin
 Last login: Tue May  8 23:39:11 UTC 2018 on pts/1
-[gpadmin@gpdbsne ~]$ cd /code/usecase2/pxfdata/
+[gpadmin@gpdbsne ~]$ cd /code/usecase2/PXFExamples/
 [gpadmin@gpdbsne PXFExamples]$ ./setupDB.sh
 CREATE EXTENSION
 GRANT
@@ -64,7 +75,7 @@ CREATE EXTERNAL TABLE
 ## Configure Postgresql
 1. You can access this Postgresql docker instance
 ```
-$ docker exec -it postgresql96 bash
+$ docker exec -it postgresql bin/bash
 root@postgresql:/#
 ```
 
@@ -84,10 +95,11 @@ Type:  \copyright for distribution terms
 
 postgres=#
 ```
-;
+
+
 
 # Reference:
-[Greenplum - PXF](https://gpdb.docs.pivotal.io/510/pxf/using_pxf.html)
+[Greenplum - PXF](https://gpdb.docs.pivotal.io/570/pxf/using_pxf.html)
 
 ## Pivotal Greenplum
 The Pivotal Greenplum Database (GPDB) is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
