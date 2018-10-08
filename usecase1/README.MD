@@ -91,26 +91,7 @@ CreateHadoopDir:  ./HADOOP/hadoop-2.7.6.tar.gz
 
 This script install the hadoop files under /usr/local/hadoop
 ```
-[gpadmin@gpdbsne setup]$ ./SetupGPHDFS.sh -i cdh5
-export HADOOP_USER_NAME=gpadmin
-export PATH=/usr/local/greenplum-db/./bin:/usr/local/greenplum-db/./ext/python/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:.:/sbin:/bin
-SSHD is running
-export HADOOP_USER_NAME=gpadmin
-Using delaybeforesend 0.05 and prompt_validation_timeout 1.0
-
-[Reset ...]
-[INFO] login gpdbsne
-[gpdbsne] echo 'export HADOOP_USER_NAME=gpadmin' >> /home/gpadmin/.bash_profile
-[INFO] completed successfully
-...
-[Reset ...]
-[INFO] login gpdbsne
-[gpdbsne] gpconfig -s gp_hadoop_target_version
-[gpdbsne] Values on all segments are consistent
-[gpdbsne] GUC          : gp_hadoop_target_version
-[gpdbsne] Master  value: mpr
-[gpdbsne] Segment value: mpr
-[INFO] completed successfully
+[gpadmin@gpdbsne setup]$ ./setupPXF.sh...
 ```
 
 
