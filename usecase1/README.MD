@@ -62,40 +62,26 @@ $ docker exec -it quickstart.cloudera bin/bash
 Once you have access to Greenplum docker instance, you can create database, table with some sample data.
 
 1. Use gpadmin user by using 'su - gpadmin'
-2. Download Hadoop distribution and [configure Greenplum to use Hadoop distribution](https://gpdb.docs.pivotal.io/570/admin_guide/external/g-one-time-hdfs-protocol-installation.html).
-Or you can use these scripts to automate the setup process.
-#### Download Hadoop files
-This script downloads hadoop tar file and unzip the file on the local directory. You can manually select different hadoop distributions by editing VERSION.
+2. Disable user impersonation by editing /usr/local/greenplum-db/pxf/conf/pxf-env.sh
 ```
-[gpadmin@gpdbsne setup]$ /usr/local/bin/DownloadHadoopTarGz.sh
-Using ./HADOOP
---2018-05-07 22:13:49--  http://apache.claz.org/hadoop/common/hadoop-2.7.6/hadoop-2.7.6.tar.gz
-Resolving apache.claz.org (apache.claz.org)... 216.245.218.171
-Connecting to apache.claz.org (apache.claz.org)|216.245.218.171|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 216745683 (207M) [application/x-gzip]
-Saving to: './HADOOP/hadoop-2.7.6.tar.gz.2'
-
-17% [======>                                ] 38,927,384  9.53MB/s  eta 21s  
+[gpadmin@gpdbsne conf]$ vi pxf-env.sh
 ```
-#### Setup Hadoop files
-
-This script install the hadoop files under /usr/local/hadoop
+Make sure you change `PXF_USER_IMPERSONATION=false`
 ```
-[gpadmin@gpdbsne setup]$ /usr/local/bin/SetupHadoopTarGz.sh
-Using ./HADOOP
-CreateHadoopDir:  ./HADOOP/hadoop-2.7.6.tar.gz
+export PXF_USER_IMPERSONATION=false
 ```
+3. Change /usr/local/greenplum-db/pxf/conf/core-site.xml to use "quickstart.cloudera".
 
-#### Setup Hadoop distribution and Hadoop setting for Greenplum, and setup Java
-
-This script install the hadoop files under /usr/local/hadoop
 ```
-[gpadmin@gpdbsne setup]$ ./setupPXF.sh...
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://quickstart.cloudera:8020</value>
+    </property>
+</configuration>
 ```
-
-
-2. Create sample database with the name "pxf_db"
+4. Create sample database with the name "pxf_db"
 The scripts to create database and sample data is found at `/code/usercase1/pxf/`.
 
 
@@ -146,7 +132,7 @@ Found 1 items
 Make sure you are accessing GPDB docker instance.
 
 1. Use psql on GPDB docker instance
-````
+```
 [gpadmin@gpdbsne gphdfs]$
 hdfs_textsimple; gphdfs]$ psql -U gpadmin -d pxf_db -c "select * from pxf_hdfs_textsimple;"
 location   | month | num_orders | total_sales

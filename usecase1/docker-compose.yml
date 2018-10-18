@@ -10,7 +10,7 @@ services:
       - COMPOSE_HTTP_TIMEOUT=120 # default is 60
     ports:
       - "8020:8020"
-      - "8022:22"     # ssh
+      - "7022:22"     # ssh
       - "7180:7180"   # Cloudera Manager
       - "8888:8888"   # HUE - user/passwd   cloudera/cloudera
       - "11000:11000" # Oozie
@@ -40,8 +40,8 @@ services:
     networks:
       mynetwork:
         aliases:
-          - quickstarter.cloudera
-          - quickstarter.cloudera.localdomain.com
+          - quickstart.cloudera
+          - quickstart.cloudera.localdomain.com
   gpdb5:
         #build:
         #  context: .
@@ -52,7 +52,7 @@ services:
         container_name: gpdbsne
         environment:
           - START_GPDB=yes
-          - START_PXF=yes 
+          - START_PXF=yes
         ports:
          - "5432:5432"
          - "5005:5005"
