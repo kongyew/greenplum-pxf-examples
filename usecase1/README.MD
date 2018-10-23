@@ -41,27 +41,15 @@ You can use this command `docker exec -it gpdbsne bin/bash` to access Greenplum 
 
 For example:
 ```
-$ docker ps
-CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                                                                             NAMES
-06ed0ead09fd        cloudera/quickstart:latest   "/usr/bin/docker-qui…"   3 minutes ago       Up 4 minutes        0.0.0.0:2181->2181/tcp, 0.0.0.0:7077->7077/tcp, 0.0.0.0:7180->7180/tcp, 0.0.0.0:8020->8020/tcp, 0.0.0.0:8042->8042/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8088->8088/tcp, 0.0.0.0:8888->8888/tcp, 0.0.0.0:8983->8983/tcp, 0.0.0.0:9090->9090/tcp, 0.0.0.0:9092->9092/tcp, 0.0.0.0:10002->10002/tcp, 0.0.0.0:11000->11000/tcp, 0.0.0.0:11443->11443/tcp, 0.0.0.0:16000-16001->16000-16001/tcp, 0.0.0.0:19888->19888/tcp, 0.0.0.0:50070->50070/tcp, 0.0.0.0:60010->60010/tcp, 0.0.0.0:8022->22/tcp, 0.0.0.0:42222->22/tcp, 0.0.0.0:9080->80/tcp   quickstart.cloudera
-22c87a7bc39d        kochanpivotal/gpdb5-pxf      "/docker-entrypoint.…"   4 minutes ago       Up 4 minutes        0.0.0.0:5005->5005/tcp, 0.0.0.0:5010->5010/tcp, 0.0.0.0:5432->5432/tcp, 0.0.0.0:40000-40002->40000-40002/tcp, 0.0.0.0:9022->22/tcp                                                                               gpdbsne
+$ docker exec -it gpdbsne bin/bash
+[root@gpdbsne /]#
 
-root@gpdbsne:/#
-```
-
-### How to access Cloudera docker instance:
-You can use this command `docker exec -it quickstart.cloudera bin/bash` to access Cloudera docker instance.
-
-For example:
-```
-$ docker exec -it quickstart.cloudera bin/bash
-[root@quickstart /]#
 ```
 
 ## Configure Greenplum
 Once you have access to Greenplum docker instance, you can create database, table with some sample data.
 
-1. Use gpadmin user by using 'su - gpadmin'
+1. Use gpadmin user by using `su - gpadmin`
 2. Disable user impersonation by editing /usr/local/greenplum-db/pxf/conf/pxf-env.sh
 ```
 [gpadmin@gpdbsne conf]$ vi pxf-env.sh
@@ -70,7 +58,7 @@ Make sure you change `PXF_USER_IMPERSONATION=false`
 ```
 export PXF_USER_IMPERSONATION=false
 ```
-3. Change /usr/local/greenplum-db/pxf/conf/core-site.xml to use "quickstart.cloudera".
+3. Change `/usr/local/greenplum-db/pxf/conf/core-site.xml` to use "quickstart.cloudera".
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -84,17 +72,16 @@ export PXF_USER_IMPERSONATION=false
 4. Create sample database with the name "pxf_db"
 The scripts to create database and sample data is found at `/code/usercase1/pxf/`.
 
-
-Next, run the command '/code/usecase1/pxf/setupDB.sh'
+Next, run the command `/code/usecase1/pxf/setupDB.sh`
 ```
-$ ./setupDB.sh           
+$ /code/usecase1/pxf/setupDB.sh        
 GRANT
 GRANT
 CREATE EXTERNAL TABLE
 ```
 
 3. Verify database and table is created
-Use 'psql -U gpadmin -d pxf_db -c "\dE"'
+Use `psql -U gpadmin -d pxf_db -c "\dE"``
 ```
 [gpadmin@gpdbsne ~]$ psql -U gpadmin -d pxf_db -c "\dE"
                      List of relations
@@ -115,7 +102,7 @@ For example:
 $ docker exec -it quickstart.cloudera bin/bash
 [root@quickstart /]#
 ```
-2. This script `setupHdfsTextSimpleExample.sh` creates sample text file.
+2. This example shows how to use a script to creates sample text file.
 ```
 [root@quickstart cloudera]# /code/usecase1/cloudera/setupHdfsTextSimpleExample.sh
 Using root to run this script.
