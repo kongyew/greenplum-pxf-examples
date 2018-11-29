@@ -147,3 +147,4 @@ count
 
 # Reference:
 [How to setup PXF for GPDB 5.x](https://gpdb.docs.pivotal.io/5130/pxf/overview_pxf.html)
+[How to configure User impersonation and Proxy](https://gpdb.docs.pivotal.io/5130/pxf/pxfuserimpers.html)
