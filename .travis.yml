@@ -43,7 +43,8 @@ script:
   - docker ps
   - docker run gpdbsne
   - docker run gpdbsne /bin/bash -c "su - gpadmin;sed -i 's/export PXF_USER_IMPERSONATION=${PXF_USER_IMPERSONATION:=true}/export PXF_USER_IMPERSONATION=false/g' /usr/local/greenplum-db/pxf/conf/pxf-env.sh"
-  - docker-compose -f ./usecase1/docker-compose.yml down
+  - docker run gpdbsne /bin/bash -c "su - gpadmin;sed -i 's/hdfs://0.0.0.0:8020/hdfs://quickstart.cloudera:8020/g' /usr/local/greenplum-db/pxf/conf/core-site.xml"
+    docker-compose -f ./usecase1/docker-compose.yml down
   - cd ${TRAVIS_BUILD_DIR}
   - ls -al
 notifications:
