@@ -10,7 +10,7 @@ This [repository](https://github.com/kongyew/greenplum-pxf-examples/tree/master/
 2. [Start Docker-compose](#Start-Docker-compose)
 3. [Configure Greenplum](#Configure-Greenplum)
 4. [Configure Cloudera](#Configure-Cloudera)
-
+5. [Use PSQL to read data via PXF](#Use-PSQL-to-read-data-via-PXF)
 ## Pre-requisites:
 - **8GB memory or more** allocated to docker
 - [docker-compose](http://docs.docker.com/compose)
@@ -120,7 +120,7 @@ Found 1 items
 [root@quickstart cloudera]#
 ```
 
-## How to use PSQL to read data via PXF
+## Use PSQL to read data via PXF
 Make sure you are accessing GPDB docker instance.
 
 1. Use psql on GPDB docker instance
