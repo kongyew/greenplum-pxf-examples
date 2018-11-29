@@ -10,8 +10,8 @@ Greenplum Database® is an advanced, fully featured, open source data platform. 
 
 
 # Use Cases:
-1. [Read text data from HDFS](#usecase1/README.MD)
-2. [Read JSON data from HDFS](#usecase1/READMEJSON.MD)
+1. [Read text data from HDFS](usecase1/README.MD)
+2. [Read JSON data from HDFS](usecase1/READMEJSON.MD)
 3. [Read HIVE Table data](#read-HIVE-Table-data)
 4. [Read data from external SQL database - experimental features](#Read-data-from-external-SQL-database)
 
