@@ -1,6 +1,6 @@
-# Pivotal Greenplum
-The Pivotal Greenplum Database (GPDB) is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
-<https://pivotal.io/pivotal-greenplum>
+#  Greenplum
+The  Greenplum Database (GPDB) is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
+<https://www.greenplum.org>
 
 # How to use Greenplum with PXF to read data from Hadoop (Cloudera)
 This [repository](https://github.com/kongyew/greenplum-pxf-examples/tree/master/usecase1) demonstrates how to use Greenplum with PXF to read text data from hadoop.
@@ -12,7 +12,7 @@ This [repository](https://github.com/kongyew/greenplum-pxf-examples/tree/master/
 4. [Configure Cloudera](#Configure-Cloudera)
 
 ## Pre-requisites:
-- 8GB memory or more allocated to docker
+- **8GB memory or more** allocated to docker
 - [docker-compose](http://docs.docker.com/compose)
 - [Cloudera docker image](https://hub.docker.com/r/cloudera/quickstart/)
 - [GPDB 5.x docker image](https://hub.docker.com/r/kochanpivotal/gpdb5oss/)
@@ -38,7 +38,7 @@ gpdbsne     | init is running
 gpdbsne     | /docker-entrypoint.d/startSSH.sh:
 ```
 ### How to access Greenplum docker instance:
-You can use this command `docker exec -it gpdbsne bin/bash` to access Greenplum docker instance.
+You can use this command `docker exec -it gpdbsne bin/bash` to access Greenplum docker instance. Or you can run this script `accessDockerGPDBSNE.sh`.
 
 For example:
 ```
@@ -59,6 +59,8 @@ Make sure you change `PXF_USER_IMPERSONATION=false`
 ```
 export PXF_USER_IMPERSONATION=false
 ```
+Or you can run this script `disablePXFUserImpersonation.sh` that perform the same operation.
+
 3. Change `/usr/local/greenplum-db/pxf/conf/core-site.xml` to use "quickstart.cloudera".
 
 ```
@@ -70,6 +72,8 @@ export PXF_USER_IMPERSONATION=false
     </property>
 </configuration>
 ```
+Or you can run this script `addClouderaToPXFCoreSiteXML.sh` that perform the same operation.
+
 4. Create sample database with the name "pxf_db"
 The scripts to create database and sample data is found at `/code/usercase1/pxf/`.
 
