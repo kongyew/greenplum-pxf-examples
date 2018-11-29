@@ -41,6 +41,8 @@ script:
   - ls -lah
   - docker-compose -f ./usecase1/docker-compose.yml up &
   - docker ps
+  - docker run gpdbsne
+  - docker run gpdbsne /bin/bash -c "su - gpadmin;sed -i 's/export PXF_USER_IMPERSONATION=${PXF_USER_IMPERSONATION:=true}/export PXF_USER_IMPERSONATION=false/g' /usr/local/greenplum-db/pxf/conf/pxf-env.sh"
   - docker-compose -f ./usecase1/docker-compose.yml down
   - cd ${TRAVIS_BUILD_DIR}
   - ls -al
