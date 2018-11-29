@@ -1,0 +1,30 @@
+{
+  "root":[
+    {
+      "record_obj":{
+        "created_at":"MonSep3004:04:53+00002013",
+        "id_str":"384529256681725952",
+        "user":{
+          "id":31424214,
+          "location":"COLUMBUS"
+        },
+        "coordinates":null
+      },
+      "record_obj":{
+        "created_at":"MonSep3004:04:54+00002013",
+        "id_str":"384529260872228864",
+        "user":{
+          "id":67600981,
+          "location":"KryberWorld"
+        },
+        "coordinates":{
+          "type":"Point",
+          "values":[
+             8,
+             52
+          ]
+        }
+      }
+    }
+  ]
+}
