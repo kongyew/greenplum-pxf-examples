@@ -12,6 +12,7 @@ This [repository](https://github.com/kongyew/greenplum-pxf-examples/tree/master/
 4. [Configure Cloudera](#Configure-Cloudera)
 
 ## Pre-requisites:
+- 8GB memory or more allocated to docker
 - [docker-compose](http://docs.docker.com/compose)
 - [Cloudera docker image](https://hub.docker.com/r/cloudera/quickstart/)
 - [GPDB 5.x docker image](https://hub.docker.com/r/kochanpivotal/gpdb5oss/)
@@ -115,13 +116,13 @@ Found 1 items
 [root@quickstart cloudera]#
 ```
 
-## How to use PSQL to read data via GPHDFS
+## How to use PSQL to read data via PXF
 Make sure you are accessing GPDB docker instance.
 
 1. Use psql on GPDB docker instance
 ```
-[gpadmin@gpdbsne gphdfs]$
-hdfs_textsimple; gphdfs]$ psql -U gpadmin -d pxf_db -c "select * from pxf_hdfs_textsimple;"
+$
+$ psql -U gpadmin -d pxf_db -c "select * from pxf_hdfs_textsimple;"
 location   | month | num_orders | total_sales
 -------------+-------+------------+-------------
 Prague      | Jan   |        101 |     4875.33
@@ -133,7 +134,7 @@ Prague      | Jan   |        101 |     4875.33
 
 2. Verify the number of records in this table pxf_hdfs_textsimple
 ```
-hdfs_textsimple; gphdfs]$ psql -U gpadmin -d pxf_db -c "select count(*) from pxf_hdfs_textsimple;"
+$ psql -U gpadmin -d pxf_db -c "select count(*) from pxf_hdfs_textsimple;"
 count
 -------
     4
@@ -145,4 +146,4 @@ count
 
 
 # Reference:
-[How to setup GPHDFS for GPDB 5.x](https://gpdb.docs.pivotal.io/570/admin_guide/external/g-using-hadoop-distributed-file-system--hdfs--tables.html)
+[How to setup PXF for GPDB 5.x](https://gpdb.docs.pivotal.io/5130/pxf/overview_pxf.html)
