@@ -53,6 +53,7 @@ services:
         environment:
           - START_GPDB=yes
           - START_PXF=yes
+          - INSTALL_JUPYTER_CONSOLE=yes
         ports:
          - "5432:5432"
          - "5005:5005"
