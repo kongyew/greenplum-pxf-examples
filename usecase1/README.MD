@@ -145,8 +145,8 @@ count
 (1 row)
 ```
 # Links:
-[Greenplum product]: https://pivotal.io/pivotal-greenplum
-[Greenplum documentations]: https://https://gpdb.docs.pivotal.io/
+[Greenplum product](https://pivotal.io/pivotal-greenplum)
+[Greenplum documentations](https://https://gpdb.docs.pivotal.io/)
 
 
 # Howto:
