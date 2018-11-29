@@ -144,11 +144,11 @@ count
     4
 (1 row)
 ```
-# Reference:
+# Links:
 [Greenplum product]: https://pivotal.io/pivotal-greenplum
 [Greenplum documentations]: https://https://gpdb.docs.pivotal.io/
 
 
-# Reference:
+# Howto:
 [How to setup PXF for GPDB 5.x](https://gpdb.docs.pivotal.io/5130/pxf/overview_pxf.html)
 [How to configure User impersonation and Proxy](https://gpdb.docs.pivotal.io/5130/pxf/pxfuserimpers.html)
