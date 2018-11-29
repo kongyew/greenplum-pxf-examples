@@ -59,7 +59,7 @@ Make sure you change `PXF_USER_IMPERSONATION=false`
 ```
 export PXF_USER_IMPERSONATION=false
 ```
-Or you can run this script `disablePXFUserImpersonation.sh` that perform the same operation.
+Or you can run this script `disablePXFUserImpersonation.sh` that performs the same operation.
 
 3. Change `/usr/local/greenplum-db/pxf/conf/core-site.xml` to use "quickstart.cloudera".
 
@@ -72,7 +72,7 @@ Or you can run this script `disablePXFUserImpersonation.sh` that perform the sam
     </property>
 </configuration>
 ```
-Or you can run this script `addClouderaToPXFCoreSiteXML.sh` that perform the same operation.
+Or you can run this script `addClouderaToPXFCoreSiteXML.sh` that performs the same operation.
 
 4. Create sample database with the name "pxf_db"
 The scripts to create database and sample data is found at `/code/usercase1/pxf/`.
