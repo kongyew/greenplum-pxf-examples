@@ -1,6 +1,6 @@
 # Greenplum with PXF
 
-The Greenplum Platform Extension Framework (PXF) provides parallel, high throughput data access and federated queries across heterogeneous data sources via built-in connectors that map a Greenplum Database external table definition to an external data source.
+PXF provides parallel, high throughput data access and federated queries across heterogeneous data sources via built-in connectors that map a Greenplum Database external table definition to an external data source.
 
 ---
 
