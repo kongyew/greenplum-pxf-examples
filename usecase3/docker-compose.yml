@@ -47,7 +47,6 @@ services:
          - "6432"
         volumes:
          - ..:/code
-
         tty: true
         networks:
           mynetwork:
