@@ -6,9 +6,9 @@ PXF provides parallel, high throughput data access and federated queries across 
 
 ### Use Cases
 
-- Read and write text file from Hadoop HDFS (Cloudera)
-- Read and write json file from Hadoop HDFS (Cloudera)
-- Read and write AVO file from Hadoop HDFS (Cloudera)
+- Read and write text file from Hadoop HDFS
+- Read and write json file from Hadoop HDFS
+- Read and write AVO file from Hadoop HDFS
 - Read and write data from external RDBMS (Postgresql, Greenplum, Oracle, MySQL)
 ---
 
