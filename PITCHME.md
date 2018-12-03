@@ -6,10 +6,13 @@ PXF provides parallel, high throughput data access and federated queries across 
 
 ### Use Cases
 
-- Read and write text file from Hadoop HDFS
-- Read and write json file from Hadoop HDFS
-- Read and write AVO file from Hadoop HDFS
-- Read and write data from external RDBMS (Postgresql, Greenplum, Oracle, MySQL)
+- Read and write text file (Hadoop HDFS)
+- Read and write json file (Hadoop HDFS)
+- Read and write AVO file (Hadoop HDFS)
+- Read data from and write data into external RDBMS
+ (Postgresql, Greenplum, Oracle, MySQL)
 ---
+
+## How to read and write text file
 
 ![PXF Architecture Explained](https://gpdb.docs.pivotal.io/5140/pxf/graphics/pxfarch.png)
