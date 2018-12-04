@@ -1,7 +1,7 @@
 # Readme
 This documentation describes how to access external SQL databases with JDBC.
 
-Greenplum provides capability to read data from external databases including Postgresql, MySQL, Oracle and others.
+Greenplum provides capability to read data from external databases including Greenplum, Postgresql, MySQL, Oracle and others.
 
 # Table of Contents
 1. [Pre-requisites](#Pre-requisites)
@@ -16,31 +16,39 @@ Greenplum provides capability to read data from external databases including Pos
 ## Run this example
 You can use this script 'runDocker.sh' to run these use Cases
 
-For example, you can use this example `./runDocker.sh -t usecase2 -c up`
+For example, you can use this example `./runDocker.sh -t usecase3 -c up`
 ```
-$ ./runDocker.sh -t usecase2 -c up
-Creating gpdbsne ... done
-Creating postgresql ... done
-Attaching to gpdbsne, postgresql
-gpdbsne     | /etc/sysconfig/run-parts
-gpdbsne     | /usr/bin/run-parts
-...
-gpdbsne     | + echo 'SSHD is running...'
-gpdbsne     | SSHD is running...
-gpdbsne     | Running bin/bash
-postgresql  | 2018-05-08 23:27:45 UTC LOG:  database system was shut down at 2018-05-08 23:27:45 UTC
-postgresql  | 2018-05-08 23:27:45 UTC LOG:  autovacuum launcher started
-postgresql  | 2018-05-08 23:27:45 UTC LOG:  database system is ready to accept connections
-
+$ ./runDocker.sh -t usecase3 -c up
+Creating network "usecase3_mynetwork" with driver "bridge"
+Creating gpdb5a ... done
+Creating gpdb5b ... done
+Attaching to gpdb5b, gpdb5a
+gpdb5b    | /etc/sysconfig/run-parts
+gpdb5a    | /etc/sysconfig/run-parts
+gpdb5b    | /usr/bin/run-parts
+gpdb5a    | /usr/bin/run-parts
+gpdb5b    | Running /docker-entrypoint.d
+gpdb5b    | /usr/bin/run-parts /docker-entrypoint.d
+gpdb5a    | Running /docker-entrypoint.d
+gpdb5a    | /usr/bin/run-parts /docker-entrypoint.d
+gpdb5a    | /docker-entrypoint.d/startInit.sh:
 ```
 
 ## Configure Greenplum
-1. You can access this Greenplum docker instance
+1. You can access this Greenplum docker instance (gpdb5a)
 ```
-$ docker exec -it gpdbsne bin/bash
+$ docker exec -it gpdb5a bin/bash
 [root@gpdbsne /]#
 [root@gpdbsne /]#
 ```
+
+Or access Greenplum docker instance (gpdb5b)
+```
+$ docker exec -it gpdb5b bin/bash
+[root@gpdbsne /]#
+[root@gpdbsne /]#
+```
+
 2. Next, you can run GPDB by using this command `startGPDB.sh`
 ```
 [root@gpdbsne /]# startGPDB.sh

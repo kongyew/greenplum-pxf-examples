@@ -15,12 +15,10 @@ then
   ./setupgpadmin.sh
   ./setupHdfsTextSimpleExample.sh
   ./setupHdfsJsonFiles.sh
-
 else
   echo "Running as root"
   ./setupgpadmin.sh
   ./setupHdfsTextSimpleExample.sh
   ./setupHdfsJsonFiles.sh
-
 fi
 cd $current

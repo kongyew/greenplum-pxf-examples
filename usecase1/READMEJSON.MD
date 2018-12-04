@@ -50,31 +50,7 @@ $ docker exec -it gpdbsne bin/bash
 ## Configure Greenplum
 Once you have access to Greenplum docker instance, you can create database, table with some sample data.
 
-1. Use gpadmin user by using `su - gpadmin`
-2. Disable user impersonation by editing /usr/local/greenplum-db/pxf/conf/pxf-env.sh
-```
-[gpadmin@gpdbsne conf]$ vi pxf-env.sh
-```
-Make sure you change `PXF_USER_IMPERSONATION=false`
-```
-export PXF_USER_IMPERSONATION=false
-```
-Or you can run this script `disablePXFUserImpersonation.sh` that performs the same operation.
-
-3. Change `/usr/local/greenplum-db/pxf/conf/core-site.xml` to use "quickstart.cloudera".
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <property>
-        <name>fs.defaultFS</name>
-        <value>hdfs://quickstart.cloudera:8020</value>
-    </property>
-</configuration>
-```
-Or you can run this script `addClouderaToPXFCoreSiteXML.sh` that performs the same operation.
-
-4. Create sample database with the name "pxf_db"
+1. Create sample database with the name "pxf_db"
 The scripts to create database and sample data is found at `/code/usercase1/pxf/`.
 
 Next, run the command `/code/usecase1/pxf/setupDB.sh`

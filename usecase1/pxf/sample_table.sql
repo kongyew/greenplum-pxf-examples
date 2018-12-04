@@ -26,3 +26,7 @@ CREATE EXTERNAL TABLE multiline_json_tbl(
           )
           LOCATION('pxf://data/pxf_examples/multiline.json?PROFILE=Json&IDENTIFIER=created_at')
           FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
+
+CREATE EXTERNAL TABLE salesinfo_hiveprofile(location text, month text, num_orders int, total_sales float8)
+                      LOCATION ('pxf://default.sales_info?PROFILE=Hive')
+                    FORMAT 'custom' (formatter='pxfwritable_import');

@@ -1,0 +1,10 @@
+Prague,Jan,101,4875.33
+Rome,Mar,87,1557.39
+Bangalore,May,317,8936.99
+Beijing,Jul,411,11600.67
+San Francisco,Sept,156,6846.34
+Paris,Nov,159,7134.56
+San Francisco,Jan,113,5397.89
+Prague,Dec,333,9894.77
+Bangalore,Jul,271,8320.55
+Beijing,Dec,100,4248.41
