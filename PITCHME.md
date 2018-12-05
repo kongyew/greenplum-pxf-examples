@@ -14,10 +14,10 @@ PXF provides parallel, high throughput data access and federated queries across 
 ---
 
 ## How to read and write text file
-![See this readme](https://github.com/kongyew/greenplum-pxf-examples/blob/master/usecase1/README.MD)
+[See this readme](https://github.com/kongyew/greenplum-pxf-examples/blob/master/usecase1/README.MD)
 
 ## How to read and write AVRO file
-![See this readme](https://github.com/kongyew/greenplum-pxf-examples/blob/master/usecase1/README.MD)
+[See this readme](https://github.com/kongyew/greenplum-pxf-examples/blob/master/usecase1/README.MD)
 
 
 ## PXF Architecture
