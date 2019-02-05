@@ -13,7 +13,9 @@ Greenplum Database® is an advanced, fully featured, open source data platform. 
 1. [Read text data from HDFS](usecase1/README.MD)
 2. [Read JSON data from HDFS](usecase1/READMEJSON.MD)
 3. [Read HIVE Table data](#read-HIVE-Table-data)
-4. [Read data from external SQL database - experimental features](#Read-data-from-external-SQL-database)
+4. [Read data from external SQL database](#Read-data-from-external-SQL-database)
+5. [Read and write data into Minio ](#Read-data-from-Minio-or-write-data-into-Minio)
+
 
 
 
@@ -31,3 +33,8 @@ For more details see [README](usecase1/README.MD)
 This example uses Greenplum with PXF to read data from external SQL database (Postgresql)
 
 For more details see [README](usecase2/README.MD)
+
+## Read data from Minio or write data into Minio
+This example uses Greenplum with PXF to access data on Minio
+
+For more details see [README](usecase8/README.MD)
