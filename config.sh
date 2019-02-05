@@ -13,3 +13,6 @@ export DC_USE_CASE2_SCRIPT="docker-compose -f ./usecase2/docker-compose-postgres
 export DC_USE_CASE3_SCRIPT="docker-compose -f ./usecase3/docker-compose.yml"
 export DC_USE_CASE4_SCRIPT="docker-compose -f ./usecase4/docker-compose.yml"
 export DC_USE_CASE5_SCRIPT="docker-compose -f ./usecase5/docker-compose.yml"
+export DC_USE_CASE6_SCRIPT="docker-compose -f ./usecase6/docker-compose.yml"
+export DC_USE_CASE7_SCRIPT="docker-compose -f ./usecase7/docker-compose.yml"
+export DC_USE_CASE8_SCRIPT="docker-compose -f ./usecase8/docker-compose.yml"

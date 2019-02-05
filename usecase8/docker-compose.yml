@@ -1,0 +1,155 @@
+version: '3'
+services:
+  minio1:
+      hostname: "minio1"
+      container_name: "minio1"
+      environment:
+        - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+      image: minio/minio
+      volumes:
+       - data1:/data
+      ports:
+       - "9001:9000"
+      environment:
+       MINIO_ACCESS_KEY: minio
+       MINIO_SECRET_KEY: minio123
+      command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data
+
+      networks:
+        mynetwork:
+          aliases:
+            - minio1
+  minio2:
+      hostname: "minio2"
+      container_name: "minio2"
+      environment:
+        - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+      image: minio/minio
+      volumes:
+       - data2:/data
+      ports:
+       - "9002:9000"
+      environment:
+       MINIO_ACCESS_KEY: minio
+       MINIO_SECRET_KEY: minio123
+      command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data
+      networks:
+        mynetwork:
+          aliases:
+            - minio2
+
+  minio3:
+      hostname: "minio3"
+      container_name: "minio3"
+      environment:
+        - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+      image: minio/minio
+      volumes:
+       - data3:/data
+      ports:
+       - "9003:9000"
+      environment:
+       MINIO_ACCESS_KEY: minio
+       MINIO_SECRET_KEY: minio123
+      command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data
+      networks:
+        mynetwork:
+          aliases:
+            - minio3
+  minio4:
+      hostname: "minio4"
+      container_name: "minio4"
+      environment:
+        - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+      image: minio/minio
+      volumes:
+       - data4:/data
+      ports:
+       - "9004:9000"
+      environment:
+       MINIO_ACCESS_KEY: minio
+       MINIO_SECRET_KEY: minio123
+      command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data
+      networks:
+        mynetwork:
+          aliases:
+            - minio4
+  minioclient:
+      hostname: "minioclient"
+      container_name: "minioclient"
+      environment:
+        - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+      image: minio/mc
+      depends_on:
+        - minio1
+        - minio2
+        - minio3
+        - minio4
+      entrypoint:
+        /bin/sh -c "
+        sleep 10;
+        /usr/bin/mc config host add minio http://minio1:9000 minio minio123;
+        /usr/bin/mc mb testbucket;
+        /usr/bin/mc cp /data/S3Examples/stocks.csv minio/testbucket;
+        /usr/bin/mc cp /data/S3Examples/testdata.csv minio/testbucket;
+        /usr/bin/mc cp /data/S3Examples/read_stocks.sql minio/testbucket;
+        /usr/bin/mc policy download minio/testbucket;
+        /usr/bin/mc policy public minio/testbucket;
+        sleep 360"
+      volumes:
+       - ./minio:/data
+      environment:
+       MINIO_ACCESS_KEY: minio
+       MINIO_SECRET_KEY: minio123
+      # command: bin/sh
+      networks:
+        mynetwork:
+          aliases:
+            - minioclient
+  gpdb5:
+        #build:
+        #  context: .
+        #  dockerfile: ./gpdb/Dockerfile
+        image: "kochanpivotal/gpdb5-pxf"
+        command: bin/bash
+        hostname: "gpdbsne"
+        container_name: gpdbsne
+        environment:
+          - START_GPDB=yes
+          - START_PXF=yes
+          - INSTALL_JUPYTER_CONSOLE=yes
+        ports:
+         - "5432:5432"
+         - "5005:5005"
+         - "5010:5010"
+         - "9022:22"
+         - "40000:40000"
+         - "40001:40001"
+         - "40002:40002"
+        expose:
+         - "5432"
+        volumes:
+         - ..:/code
+        privileged: true
+        tty: true
+        networks:
+          mynetwork:
+            aliases:
+              - gpdbsne
+              - gpdbsne.localdomain.com
+networks:
+    mynetwork:
+      driver: bridge
+
+
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  data1:
+  data2:
+  data3:
+  data4:
+  # data1:/tmp/data1
+  # data2:/tmp/data2
+  # data3:/tmp/data3
+  # data4:/tmp/data4
