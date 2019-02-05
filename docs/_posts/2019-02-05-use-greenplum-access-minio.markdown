@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Use Greenplum!"
+title:  "Use Greenplum to access data on Minio!"
 date:   2019-02-05 14:54:07 -0700
 categories: greenplum mino
 ---
