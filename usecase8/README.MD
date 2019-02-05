@@ -209,7 +209,6 @@ $ docker exec -it  minio1 bin/sh
 
 
 
-
 # Links:
 - [Greenplum PXF](https://gpdb.docs.pivotal.io/latest/pxf/overview_pxf.html)
 - [Greenplum product](https://pivotal.io/pivotal-greenplum)
