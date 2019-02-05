@@ -2,7 +2,7 @@
 The  Greenplum Database (GPDB) is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
 <https://www.greenplum.org>
 
-# How to use Greenplum with PXF to read data from Hadoop (Cloudera)
+# How to use Greenplum with PXF to access data on Minio
 This [repository](https://github.com/kongyew/greenplum-pxf-examples/tree/master/usecase8) demonstrates how to use Greenplum with PXF to read text from Minio.
 
 # Table of Contents
