@@ -1,0 +1,53 @@
+version: '2'
+services:
+  db2:
+        image: "ibmcom/db2express-c:latest"
+        command: bin/bash
+        hostname: "db2"
+        container_name: db2
+        environment:
+          - LICENSE=accept
+          - DB2INST1_PASSWORD=dbuserpass
+          - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+        ports:
+             - "50000:50000"
+        expose:
+         - "50000"
+        volumes:
+         - ..:/code
+        tty: true
+        networks:
+          mynetwork:
+            aliases:
+              - db2
+              - db2.localdomain.com
+  gpdbsne:
+        image: "kochanpivotal/gpdb5-pxf"
+        command: bin/bash
+        hostname: "gpdbsne"
+        container_name: gpdbsne
+        environment:
+          - START_GPDB=yes
+          - START_PXF=yes
+          - COMPOSE_HTTP_TIMEOUT=120 # default is 60
+        ports:
+         - "6432:5432"
+         - "6005:5005"
+         - "6010:5010"
+         - "19022:22"
+         - "60000:40000"
+         - "60001:40001"
+         - "60002:40002"
+        expose:
+         - "6432"
+        volumes:
+         - ..:/code
+        tty: true
+        networks:
+          mynetwork:
+            aliases:
+              - gpdbsne
+              - gpdbsne.localdomain.com
+networks:
+    mynetwork:
+      driver: bridge
